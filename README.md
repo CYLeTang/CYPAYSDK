@@ -1,5 +1,5 @@
 # Introduction
-This CYPAYSDK SDK for iOS provides a framework for iOS developers to develop First screen ads show to Users. 
+This CYPAYSDK SDK for iOS provides a framework for iOS developers to develop pay with weixin and alipay. 
 
 It currently supports iOS 7 later
 
