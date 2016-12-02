@@ -18,3 +18,9 @@ AdSupport.framework、StoreKit.framework（optional）
 4、set "LSApplicationQueriesSchemes"->"weixin,alipay" <br>
 5、#import "CY_PayManager.h" <br>
 6、other detail check guide
+
+#版本升级
+1.4
+修正微信支付成功详情界面<br>
+删除订单名称,订单金额等信息<br>
+订单状态与订单详情不在SDK中显示，由SDK对接者验证订单后显示
