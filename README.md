@@ -24,3 +24,6 @@ AdSupport.framework、StoreKit.framework（optional）
 修正微信支付成功详情界面<br>
 删除订单名称,订单金额等信息<br>
 订单状态与订单详情不在返回界面中显示(如需显示，由CP自行完成)
+
+1.5<br>
+修复cocos2dx下，调出支付界面，游戏视图仍可点击bug<br>
