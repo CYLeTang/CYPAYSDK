@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface CY_PayManager : NSObject
+@interface CY_PayManager : NSObject<UIAlertViewDelegate>
 
 //支付Appid(required)
 @property(nonatomic,copy)NSString* Appid;
@@ -24,7 +24,7 @@
 @property(nonatomic,copy)NSString* OrderDetail;
 //是否支持苹果支付(optional)
 //default NO
-@property(nonatomic,assign)NSString* AppPayProductId;
+@property(nonatomic,copy)NSString* AppPayProductId;
 
 
 + (instancetype)defaultManager;
