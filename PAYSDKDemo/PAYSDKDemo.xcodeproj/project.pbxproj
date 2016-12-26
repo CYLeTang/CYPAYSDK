@@ -16,7 +16,7 @@
 		BBA29E7A1DE0B43000FDDFAF /* CY_PAYRESOUCE.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BBA29E781DE0B43000FDDFAF /* CY_PAYRESOUCE.bundle */; };
 		BBA29E7E1DE0B70D00FDDFAF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA29E7D1DE0B70D00FDDFAF /* AdSupport.framework */; };
 		BBA29E801DE0B73B00FDDFAF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA29E7F1DE0B73B00FDDFAF /* StoreKit.framework */; };
-		BBE48A021DE4527300A472DC /* CY_PAYSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE48A011DE4527300A472DC /* CY_PAYSDK.framework */; };
+		BBD359121E0B9DD100C72074 /* CY_PAYSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBD359111E0B9DD100C72074 /* CY_PAYSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		BBA29E781DE0B43000FDDFAF /* CY_PAYRESOUCE.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CY_PAYRESOUCE.bundle; sourceTree = "<group>"; };
 		BBA29E7D1DE0B70D00FDDFAF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		BBA29E7F1DE0B73B00FDDFAF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		BBE48A011DE4527300A472DC /* CY_PAYSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CY_PAYSDK.framework; sourceTree = "<group>"; };
+		BBD359111E0B9DD100C72074 /* CY_PAYSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CY_PAYSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA29E801DE0B73B00FDDFAF /* StoreKit.framework in Frameworks */,
-				BBE48A021DE4527300A472DC /* CY_PAYSDK.framework in Frameworks */,
+				BBD359121E0B9DD100C72074 /* CY_PAYSDK.framework in Frameworks */,
 				BBA29E7E1DE0B70D00FDDFAF /* AdSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,7 +95,7 @@
 		BBA29E771DE0B43000FDDFAF /* CY_PAYSDK */ = {
 			isa = PBXGroup;
 			children = (
-				BBE48A011DE4527300A472DC /* CY_PAYSDK.framework */,
+				BBD359111E0B9DD100C72074 /* CY_PAYSDK.framework */,
 				BBA29E781DE0B43000FDDFAF /* CY_PAYRESOUCE.bundle */,
 			);
 			path = CY_PAYSDK;

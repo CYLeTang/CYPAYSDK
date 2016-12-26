@@ -1,0 +1,37 @@
+/***
+**  C 服务器解密 demo
+***/
+int rsa_public_decrypt(unsigned char *inbuf, char *key_path, unsigned char* outbuf)
+{
+    RSA *p_rsa;
+    FILE *file;
+    int rsa_len;
+
+    // 打开公钥文件   
+    if((file=fopen(key_path,"r"))==NULL)
+    {
+        WriteLog("open key file error");
+        return 0;
+    }
+    
+    if((p_rsa=PEM_read_RSA_PUBKEY(file,&p_rsa,NULL,NULL))==NULL)
+    //if((p_rsa=PEM_read_RSAPublicKey(file,NULL,NULL,NULL))==NULL)   // 注:前者用于PEM格式,后者用于PKCS#1格式
+    {
+        WriteLog("PEM_read_RSA_PUBKEY error");
+        fclose(file);
+        return 0;
+    }
+    
+    rsa_len=RSA_size(p_rsa);
+    
+    if(RSA_public_decrypt(rsa_len,inbuf,outbuf,p_rsa,RSA_PKCS1_PADDING)<0)
+    {
+        WriteLog("RSA_public_decrypt error");
+        fclose(file);
+        return 0;
+    }
+
+    RSA_free(p_rsa);
+    fclose(file);
+    return 1;
+}

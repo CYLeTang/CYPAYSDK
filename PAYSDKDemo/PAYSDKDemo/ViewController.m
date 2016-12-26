@@ -30,10 +30,10 @@
 
 - (void)PayBtnClick{
     CY_PayManager* manager = [CY_PayManager defaultManager];
-    manager.Appid = @"1479437833539492";
-    manager.AppSecret = @"y4d1cqfXFfXPxBtmnDWsRhO0b5aDCA1I";
+    manager.Appid = @"";
+    manager.AppSecret = @"";
     manager.OrderAtm = @"1";
-    manager.AppPayProductId = @"com.congcong.buy_egg_10";
+    manager.AppPayProductId = @"";
     [manager Pay];
     
     
