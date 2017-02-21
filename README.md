@@ -27,3 +27,7 @@ AdSupport.framework、StoreKit.framework（optional）
 
 1.5<br>
 修复cocos2dx下，调出支付界面，游戏视图仍可点击bug<br>
+
+1.6<br>
+解决苹果支付36刷问题<br>
+默认30 6支付时间间隔1分钟
