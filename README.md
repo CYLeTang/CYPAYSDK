@@ -31,3 +31,6 @@ AdSupport.framework、StoreKit.framework（optional）
 1.6<br>
 解决苹果支付36刷问题<br>
 默认30 6支付时间间隔1分钟
+
+1.7<br>
+解决iOS8.0版本下window显示层不能占满整个屏幕，view视图越界无法点击问题
