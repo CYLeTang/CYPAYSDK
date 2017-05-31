@@ -1,0 +1,103 @@
+protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                logger.Info("===================捕鱼王者(54) android notify===================");
+                try
+                {
+                    string jsonStr = "", line;
+
+                    Stream streamResponse = Request.InputStream;
+                    StreamReader streamRead = new StreamReader(streamResponse, Encoding.Default);
+
+                    while ((line = streamRead.ReadLine()) != null)
+                    {
+                        jsonStr += line;
+                    }
+                    logger.Info(" 捕鱼王者(54) recv = " + jsonStr);
+
+                    streamResponse.Close();
+                    streamRead.Close();
+
+
+                    string plainText = new RSAForJava().DecryptByPublicKeyShort(jsonStr, PublicKey);
+
+                    logger.Info(" 捕鱼王者(54) recv = " + plainText);
+
+                    if (plainText==null|| plainText=="")
+                    {
+                        logger.Info(" 捕鱼王者(54) notify android error validSign");
+                        Response.Write("fail");
+                    }
+                    else
+                    {
+                        var map = JsonMapper.ToObject(plainText);
+
+                        var cpOrderId = map["orderdetail"].ToString();
+
+                        
+                        var price = (int)float.Parse(map["orderAtm"].ToString());
+                        logger.Info(" 捕鱼王者(54) price:" + price);
+                        //验证价格
+                        if (XXXXXXX)
+                        {
+                            logger.Info(" 捕鱼王者(54) 订单价格异常.");
+                            Response.Write("fail");
+                            return;
+                        }
+
+                        logger.Info(" 捕鱼王者(54) cpOrderId " + cpOrderId);
+
+                        //修改订单状态
+                        //XXXXX
+
+                        //支付成功
+                        logger.Info("捕鱼王者(54) 充值成功");
+                        Response.Write("CYSuccess");
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    logger.Info(" 捕鱼王者(54) notify android error :" + ex.StackTrace);
+                    Response.Write("fail");
+                    return;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 数据小于128长度
+        /// </summary>
+        public string DecryptByPublicKeyShort(string s, string key)
+        {
+            s = s.Replace("\r", "").Replace("\n", "").Replace(" ", "");
+            //非对称加密算法，加解密用  
+            IAsymmetricBlockCipher engine = new Pkcs1Encoding(new RsaEngine());
+
+
+            //解密  
+
+            try
+            {
+                engine.Init(false, GetPublicKeyParameter(key));
+                byte[] byteData = Convert.FromBase64String(s);
+                var ResultData = engine.ProcessBlock(byteData, 0, byteData.Length);
+                return System.Text.Encoding.UTF8.GetString(ResultData);
+
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+
+            }
+        }
+
+        private AsymmetricKeyParameter GetPublicKeyParameter(string s)
+        {
+            s = s.Replace("\r", "").Replace("\n", "").Replace(" ", "");
+            byte[] publicInfoByte = Convert.FromBase64String(s);
+            Asn1Object pubKeyObj = Asn1Object.FromByteArray(publicInfoByte);//这里也可以从流中读取，从本地导入   
+            AsymmetricKeyParameter pubKey = PublicKeyFactory.CreateKey(publicInfoByte);
+            return pubKey;
+        }

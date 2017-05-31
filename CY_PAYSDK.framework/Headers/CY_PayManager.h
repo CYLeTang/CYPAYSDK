@@ -23,7 +23,6 @@
 //订单详情
 @property(nonatomic,copy)NSString* OrderDetail;
 //是否支持苹果支付(optional)
-//default NO
 @property(nonatomic,copy)NSString* AppPayProductId;
 
 
